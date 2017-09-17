@@ -44,13 +44,14 @@ namespace WindowsFormsApplication1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 820);
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.Icon = new Icon(@"Qr_Code.ico");
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "QR Code";
             this.ResumeLayout(false);
 
-            string background = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-            string bg_filename = System.IO.Path.Combine(background, "cyber.png");
-            Image image = new Bitmap(bg_filename);
+            Image image = Image.FromFile(@"cyber.png");
             Image bg_image = new Bitmap(image, 1200, 820);
 
 
@@ -169,10 +170,8 @@ namespace WindowsFormsApplication1
             b_undo.Text = "UNDO";
             b_undo.Location = new System.Drawing.Point(950, 150);
             b_undo.Size = new System.Drawing.Size(90, 40);
-            
-            string dir = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-            string filename = System.IO.Path.Combine(dir, "Undo.ico");
-            b_undo.Image = Image.FromFile(filename);
+
+            b_undo.Image = Image.FromFile(@"Undo.ico");
             b_undo.ImageAlign = ContentAlignment.MiddleLeft;
             b_undo.TextAlign = ContentAlignment.MiddleRight;
             b_undo.Font = new Font("Cambria", 12, FontStyle.Bold);
