@@ -57,15 +57,42 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WindowsFormsApplication1.exe" size="13312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WindowsFormsApplication1.exe" size="3542016">
       <assemblyIdentity name="WindowsFormsApplication1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>FY1wrJroS3Ahp1Lw0a7LxMCNfGk=</dsig:DigestValue>
+        <dsig:DigestValue>V786FfxZV/aPByhVWPI0xzJ4RcY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="Resources\cyber.png" size="3291388">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>alvlyx2b1d2Wj8Nz/QV3525TlCo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Qr_Code.ico" size="163240">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>33In5lt+Sf+YNXXDoHOQqs7yqEc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Undo.ico" size="297086">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>X3TBih0oTfSe9Br1jg/LMS71Tno=</dsig:DigestValue>
+    </hash>
+  </file>
 </asmv1:assembly>
