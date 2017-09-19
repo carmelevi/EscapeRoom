@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1
             // 
             // journal_panel
             // 
-            this.journal_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.journal_panel.BackColor = System.Drawing.Color.DarkGray;
             this.journal_panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.journal_panel.Location = new System.Drawing.Point(834, 158);
             this.journal_panel.Margin = new System.Windows.Forms.Padding(0);
@@ -86,7 +86,7 @@ namespace WindowsFormsApplication1
             // miniQR_panel
             // 
             this.miniQR_panel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.miniQR_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.miniQR_panel.BackColor = System.Drawing.Color.DarkGray;
             this.miniQR_panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.miniQR_panel.Location = new System.Drawing.Point(1054, 158);
             this.miniQR_panel.Margin = new System.Windows.Forms.Padding(0);
@@ -99,7 +99,7 @@ namespace WindowsFormsApplication1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.cyber;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1188, 820);
             this.Controls.Add(this.miniQR_panel);
@@ -115,6 +115,7 @@ namespace WindowsFormsApplication1
             this.Name = "Form1";
             this.Text = "QR Code";
             this.ResumeLayout(false);
+
         }
 
         #endregion

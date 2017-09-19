@@ -11,8 +11,10 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
-        private Button[,] QRmat = new Button[25, 25];
-        private Stack<List<Button>> button_stack = new Stack<List<Button>>();
+        private QR_Button[,] QRmat = new QR_Button[25, 25];
+        private Label[] horizontalFrame = new Label[25];
+        private Label[] verticalFrame = new Label[25];
+        private Stack<List<QR_Button>> button_stack = new Stack<List<QR_Button>>();
 
         private List<Label> label_list = new List<Label>();
         private List<PictureBox> miniQR_list = new List<PictureBox>();
@@ -59,36 +61,40 @@ namespace WindowsFormsApplication1
             for (int x = 1; x <= 25; x++)
             {
 
-                Label newButton = new Label();
-                newButton.Location = new System.Drawing.Point(20, 50 + (x - 1) * 30);
-                newButton.Size = new System.Drawing.Size(23, 30);
-                newButton.BackColor = System.Drawing.Color.White;
+                Label newLabel = new Label();
+                newLabel.Location = new System.Drawing.Point(20, 50 + (x - 1) * 30);
+                newLabel.Size = new System.Drawing.Size(23, 30);
+                newLabel.BackColor = Color.White;
 
-                newButton.Font = new Font(newButton.Font.FontFamily, 6);
-                newButton.TextAlign = ContentAlignment.MiddleCenter;
-                newButton.TabStop = false;
-                newButton.FlatStyle = FlatStyle.Flat;
+                newLabel.Font = new Font(newLabel.Font.FontFamily, 6);
+                newLabel.TextAlign = ContentAlignment.MiddleCenter;
+                newLabel.TabStop = false;
+                newLabel.FlatStyle = FlatStyle.Flat;
 
-                newButton.Text = x.ToString();
-                this.Controls.Add(newButton);
+                newLabel.Text = x.ToString();
+                this.Controls.Add(newLabel);
+
+                horizontalFrame[x - 1] = newLabel;
             }
 
             char letter = 'A';
             for (int y = 0; y < 25; y++)
             {
-                Label newButton = new Label();
-                newButton.Location = new System.Drawing.Point(50 + y * 30, 20);
-                newButton.Size = new System.Drawing.Size(30, 23);
-                newButton.BackColor = System.Drawing.Color.White;
+                Label newLabel = new Label();
+                newLabel.Location = new System.Drawing.Point(50 + y * 30, 20);
+                newLabel.Size = new System.Drawing.Size(30, 23);
+                newLabel.BackColor = System.Drawing.Color.White;
 
-                newButton.Font = new Font(newButton.Font.FontFamily, 6);
-                newButton.TextAlign = ContentAlignment.MiddleCenter;
-                newButton.TabStop = false;
-                newButton.FlatStyle = FlatStyle.Flat;
+                newLabel.Font = new Font(newLabel.Font.FontFamily, 6);
+                newLabel.TextAlign = ContentAlignment.MiddleCenter;
+                newLabel.TabStop = false;
+                newLabel.FlatStyle = FlatStyle.Flat;
 
-                newButton.Text = letter.ToString();
-                this.Controls.Add(newButton);
+                newLabel.Text = letter.ToString();
+                this.Controls.Add(newLabel);
                 letter++;
+
+                verticalFrame[y] = newLabel;
             }
 
             ToolTip tt = new ToolTip();
@@ -99,7 +105,9 @@ namespace WindowsFormsApplication1
 
                 for (int j = 0; j < 25; j++)
                 {
-                    Button newButton = new Button();
+                    QR_Button newButton = new QR_Button();
+                    newButton.x = i;
+                    newButton.y = j;
                     newButton.Location = new System.Drawing.Point(50 + j * 30, 50 + i * 30);
                     newButton.Size = new System.Drawing.Size(30, 30);
 
@@ -135,13 +143,41 @@ namespace WindowsFormsApplication1
                     c++;
                 }
             }
+
+            
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    QRmat[i, j].Enabled = false;
+                    QRmat[i, j].Text = "";
+                }
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 18; j < 25; j++)
+                {
+                    QRmat[i, j].Enabled = false;
+                    QRmat[i, j].Text = "";
+                }
+            }
+
+            for (int i = 18; i < 25; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    QRmat[i, j].Enabled = false;
+                    QRmat[i, j].Text = "";
+                }
+            }
         }
 
         void b_Click(object sender, System.EventArgs e)
         {
-            Button b = (Button)sender;
+            QR_Button b = (QR_Button)sender;
 
-            if (b.FlatAppearance.BorderColor == Color.Red)
+            if (b.FlatAppearance.BorderColor == Color.FromName("DodgerBlue"))
             {
                 b.FlatAppearance.BorderSize = 0;
                 b.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
@@ -150,7 +186,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                b.FlatAppearance.BorderColor = Color.Red;
+                b.FlatAppearance.BorderColor = Color.FromName("DodgerBlue");
                 b.FlatAppearance.BorderSize = 2;
                 chosen_count++;
             }
@@ -169,13 +205,17 @@ namespace WindowsFormsApplication1
 
         void b_MouseEnter(object sender, System.EventArgs e)
         {
-            Button b = (Button)sender;
+            QR_Button b = (QR_Button)sender;
             b.ForeColor = System.Drawing.Color.Gray;
+            
+            //Frame
+            this.horizontalFrame[b.x].BackColor = Color.FromName("Lavender");
+            this.verticalFrame[b.y].BackColor = Color.FromName("Lavender");
         }
 
         void b_MouseLeave(object sender, System.EventArgs e)
         {
-            Button b = (Button)sender;
+            QR_Button b = (QR_Button)sender;
             b.ForeColor = System.Drawing.Color.Gray;
 
             if (b.BackColor == System.Drawing.Color.Black)
@@ -186,14 +226,19 @@ namespace WindowsFormsApplication1
             {
                 b.ForeColor = System.Drawing.Color.White;
             }
+
+            //Frame
+            this.horizontalFrame[b.x].BackColor = Color.White;
+            this.verticalFrame[b.y].BackColor = Color.White;
+            
         }
 
         void undo_Click(object sender, System.EventArgs e)
         {
 
-            List<Button> commit_list = (List<Button>)button_stack.Pop();
+            List<QR_Button> commit_list = (List<QR_Button>)button_stack.Pop();
 
-            foreach (Button b in commit_list)
+            foreach (QR_Button b in commit_list)
             {
 
                 if (b.BackColor == System.Drawing.Color.White)
@@ -227,7 +272,7 @@ namespace WindowsFormsApplication1
 
         void commit_Click(object sender, System.EventArgs e)
         {
-            List<Button> chosenButtons = new List<Button>();
+            List<QR_Button> chosenButtons = new List<QR_Button>();
             String commit_log = "";
             
             PictureBox miniQR = new PictureBox();
@@ -242,8 +287,8 @@ namespace WindowsFormsApplication1
             {
                 for (int j = 0; j < 25; j++)
                 {
-                    Button current = QRmat[i, j];
-                    if (current.FlatAppearance.BorderColor == Color.Red)
+                    QR_Button current = QRmat[i, j];
+                    if (current.FlatAppearance.BorderColor == Color.FromName("DodgerBlue"))
                     {
                         chosenButtons.Add(current);
                         current.FlatAppearance.BorderSize = 0;
@@ -281,8 +326,8 @@ namespace WindowsFormsApplication1
             {
                 for (int j = 0; j < 25; j++)
                 {
-                    Button current = QRmat[i, j];
-                    if (current.FlatAppearance.BorderColor == Color.Red)
+                    QR_Button current = QRmat[i, j];
+                    if (current.FlatAppearance.BorderColor == Color.FromName("DodgerBlue"))
                     {
                         current.FlatAppearance.BorderSize = 0;
                         current.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
@@ -345,7 +390,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        void switchColor(Button b)
+        void switchColor(QR_Button b)
         {
             if (b.BackColor == System.Drawing.Color.White)
             {
@@ -359,6 +404,12 @@ namespace WindowsFormsApplication1
             }
         }
 
+    }
+
+    class QR_Button : Button
+    {
+        public int x;
+        public int y;
     }
 
 }

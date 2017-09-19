@@ -58,14 +58,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Escape.exe" size="3705856">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Escape.exe" size="6605824">
       <assemblyIdentity name="Escape" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>KvDkWVjU/MJ7+yEx4lEpG4jLXJ4=</dsig:DigestValue>
+        <dsig:DigestValue>TcGBLmy24mx2YRgZP0tiqaaco28=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
