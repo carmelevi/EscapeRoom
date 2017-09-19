@@ -89,7 +89,7 @@ namespace WindowsFormsApplication1
             this.miniQR_panel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.miniQR_panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.miniQR_panel.Location = new System.Drawing.Point(1054, 158);
-            this.miniQR_panel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.miniQR_panel.Margin = new System.Windows.Forms.Padding(0);
             this.miniQR_panel.Name = "miniQR_panel";
             this.miniQR_panel.Size = new System.Drawing.Size(106, 636);
             this.miniQR_panel.TabIndex = 0;
@@ -108,13 +108,13 @@ namespace WindowsFormsApplication1
             this.Controls.Add(this.b_commit);
             this.Controls.Add(this.b_undo);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "QR Code";
             this.ResumeLayout(false);
-
         }
 
         #endregion

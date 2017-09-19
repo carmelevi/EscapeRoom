@@ -67,9 +67,9 @@ namespace WindowsFormsApplication1.Properties {
             }
         }
         
-        internal static System.Drawing.Icon Qr_Code {
+        internal static System.Drawing.Icon QR_code {
             get {
-                object obj = ResourceManager.GetObject("Qr_Code", resourceCulture);
+                object obj = ResourceManager.GetObject("QR_code", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
